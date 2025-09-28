@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / compiled files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.egg
+*.egg-info/
+.eggs/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Database
+db.sqlite3
+
+# Media and static files
+media/
+static_collected/
+
+# IDE-specific files
+.idea/
+.vscode/
+*.swp
+*.bak
+*.swo
+
+# Django specific
+*.log
+local_settings.py  # Or any file containing sensitive settings like SECRET_KEY
+.env # For environment variables
+
+# Operating System files
+.DS_Store
+Thumbs.db
