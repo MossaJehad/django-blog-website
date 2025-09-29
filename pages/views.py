@@ -1,7 +1,7 @@
-from django.views.generic import TemplateView # type: ignore
+from django.shortcuts import render
 
-class HomePageView(TemplateView):
-	template_name = 'home.html'
+def home(request):
+	return render(request, "pages/home.html")
 
-class AboutPageView(TemplateView):
-	template_name = 'about.html'
+def about(request):
+	return render(request, "pages/about.html")
