@@ -10,4 +10,4 @@ class Post(models.Model):
 	body = models.TextField()
 
 	def __str__(self):
-		return f"{self.title[:20]} - {self.body[:50]}"
+		return self.title
