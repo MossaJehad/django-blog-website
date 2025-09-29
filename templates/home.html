@@ -1,0 +1,19 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+	{% for post in object_list %}
+	<div class="post-entry card">
+		<h2 class="post_title">
+			<a href="{% url 'post_details' post.pk %}">
+				{{ post.title|slice:":20" }}
+				{% if post.title|length > 20 %}...{% endif %}
+			</a>
+		</h2>
+		<p class="post_body">
+			{{ post.body|slice:":50" }}
+			{% if post.body|length > 50 %}...{% endif %}
+		</p>
+	</div>
+	{% endfor %}
+{% endblock content %}
