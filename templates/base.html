@@ -12,6 +12,21 @@
 		<header>
 			<h1 class="site_header"><a href="{% url 'home' %}">Django blog</a></h1>
 		</header>
+		{% if user.is_authenticated %}
+			<p>Hi {{ user.username }}!</p>
+			<form method="post" action="{% url 'logout' %}">
+				{% csrf_token %}
+				<p>
+					<a class="button save_btn session" value="logout" type="submit" href="#"
+						onclick="this.closest('form').submit();">
+						Log out
+					</a>
+				</p>
+			</form>
+		{% else %}
+			<p>You are not logged in.</p>
+			<a class="button save_btn session" href="{% url 'login' %}">Log In</a>
+		{% endif %}
 		<nav>
 			<a class="new_button button" href="{% url 'post_new' %}">+ New Blog Post</a>
 		</nav>

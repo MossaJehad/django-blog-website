@@ -69,7 +69,6 @@ body {
 	position: relative;
 	background: var(--card-bg);
 	padding: 1.5rem;
-	border-radius: var(--radius);
 	box-shadow:  0 6px 22px rgba(10,10,10,0.04);
 	display: block;
 	overflow: hidden;
@@ -77,14 +76,15 @@ body {
 }
 
 .button {
+	margin: 0 0 30px 0;
 	width: 140px;
+	display: inline-block;
 	text-align: center;
 	text-decoration: none;
 	font-weight: 600;
 	padding: 0.5rem 1rem;
-	border-radius: var(--radius);
 	transition: background 0.3s, color 0.3s;
-	position: absolute;
+	cursor: pointer;
 }
 
 .save_btn {
@@ -114,7 +114,16 @@ body {
 	color: white;
 }
 
+.session {
+	position: absolute;
+	left: 2.5rem;
+	top: 2.5rem;
+	color: var(--text);
+	border: 2px solid var(--text);
+}
+
 .home_button {
+	position: absolute;
 	right: 12rem;
 	top: 2.5rem;
 	color: var(--home_button);
@@ -126,6 +135,7 @@ body {
 }
 
 .new_button {
+	position: absolute;
 	right: 2.5rem;
 	top: 2.5rem;
 	color: var(--new_button);
@@ -137,6 +147,7 @@ body {
 }
 
 .update_button {
+	position: absolute;
 	right: 2.5rem;
 	top: 6rem;
 	color: var(--update_button);
@@ -148,6 +159,7 @@ body {
 }
 
 .delete_button {
+	position: absolute;
 	right: 12rem;
 	top: 6rem;
 	color: var(--delete_button);
@@ -166,7 +178,6 @@ body {
 .post_details {
 	background: var(--card-bg);
 	border: 3px solid #000;
-	border-radius: var(--radius);
 	padding: 2rem;
 	max-width: 760px;
 	margin: 2rem auto;
@@ -198,7 +209,6 @@ body {
 .post_details::before {
 	content: "";
 	position: absolute;
-	border-radius: 20%;
 	top: -20px;
 	left: -20px;
 	width: 60px;
