@@ -10,6 +10,10 @@
 	--card-bg: #ffffff;
 	--radius: 6px;
 	--max-width: 980px;
+	--new_button: rgb(34, 139, 34);
+	--update_button: rgb(30, 144, 255);
+	--delete_button: rgb(220, 20, 60);
+	--home_button: rgb(239, 152, 1);
 }
 
 * {
@@ -72,6 +76,88 @@ body {
 	border: 3px solid #000;
 }
 
+.button {
+	width: 140px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 600;
+	padding: 0.5rem 1rem;
+	border-radius: var(--radius);
+	transition: background 0.3s, color 0.3s;
+	position: absolute;
+}
+
+.save_btn {
+	color: var(--new_button);
+	border: 2px solid var(--new_button);
+}
+.save_btn:hover {
+	background: var(--new_button);
+	color: white;
+}
+
+.update_btn {
+	color: var(--update_button);
+	border: 2px solid var(--update_button);
+}
+.update_btn:hover {
+	background: var(--update_button);
+	color: white;
+}
+
+.delete_btn {
+	color: var(--delete_button);
+	border: 2px solid var(--delete_button);
+}
+.delete_btn:hover {
+	background: var(--delete_button);
+	color: white;
+}
+
+.home_button {
+	right: 12rem;
+	top: 2.5rem;
+	color: var(--home_button);
+	border: 2px solid var(--home_button);
+}
+.home_button:hover {
+	background: var(--home_button);
+	color: white;
+}
+
+.new_button {
+	right: 2.5rem;
+	top: 2.5rem;
+	color: var(--new_button);
+	border: 2px solid var(--new_button);
+}
+.new_button:hover {
+	background: var(--new_button);
+	color: white;
+}
+
+.update_button {
+	right: 2.5rem;
+	top: 6rem;
+	color: var(--update_button);
+	border: 2px solid var(--update_button);
+}
+.update_button:hover {
+	background: var(--update_button);
+	color: white;
+}
+
+.delete_button {
+	right: 12rem;
+	top: 6rem;
+	color: var(--delete_button);
+	border: 2px solid var(--delete_button);
+}
+.delete_button:hover {
+	background: var(--delete_button);
+	color: white;
+}
+
 .card a {
 	text-decoration: none;
 	color: rgb(239,152,1);
@@ -129,7 +215,7 @@ body {
 
 .post_title {
 	position: relative;
-	font-family: "Bebas Neue", sans-serif;
+	font-family: Staatliches, "Staatliches", "Bebas Neue", sans-serif;
 	font-size: 1.8rem;
 	margin-bottom: 0.25rem;
 	z-index: 1;
@@ -144,27 +230,9 @@ body {
 	max-width: 70ch;
 }
 
-.back_link:hover {
-	background: rgb(239,152,1);
-	color: white;
-}
-
-.back_link {
-	position: absolute;
-	left: 2.5rem;
-	bottom: 2.5rem;
-	text-decoration: none;
-	color: rgb(239,152,1);
-	font-weight: 600;
-	border: 2px solid rgb(239,152,1);
-	padding: 0.5rem 1rem;
-	border-radius: var(--radius);
-	transition: background 0.3s, color 0.3s;
-}
-
 h1 {
 	font-size: 2.5rem;
-	font-family: "Bebas Neue", sans-serif;
+	font-family: Staatliches, "Staatliches", "Bebas Neue", sans-serif;
 	margin-bottom: 0.5rem
 }
 
@@ -177,4 +245,43 @@ h2 {
 p {
 	margin-bottom: 1rem;
 	color: #222;
+}
+
+.form-group {
+	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	font-family: 'Futura', 'Helvetica Neue', sans-serif;
+}
+
+.form-group label {
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 0.5rem;
+	color: #000;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+	border: 3px solid black;
+	padding: 0.7rem 1rem;
+	font-size: 1rem;
+	font-weight: 500;
+	background: white;
+	outline: none;
+	width: 100%;
+	letter-spacing: 0.1rem;
+	transition: background 0.2s, color 0.2s;
+}
+
+/* Color accents */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+	background: rgb(240, 200, 1, 0.2);
+	color: black;
+	border-color: #e1716f;
 }

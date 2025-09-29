@@ -12,6 +12,9 @@
 		<header>
 			<h1 class="site_header"><a href="{% url 'home' %}">Django blog</a></h1>
 		</header>
+		<nav>
+			<a class="new_button button" href="{% url 'post_new' %}">+ New Blog Post</a>
+		</nav>
 		<div class="cards_container">
 			{% block content %}
 			{% endblock content %}
