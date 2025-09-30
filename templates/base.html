@@ -28,7 +28,9 @@
 			<a class="button save_btn session" href="{% url 'login' %}">Log In</a>
 		{% endif %}
 		<nav>
-			<a class="new_button button" href="{% url 'post_new' %}">+ New Blog Post</a>
+			{% if user.is_authenticated %}
+				<a class="new_button button" href="{% url 'post_new' %}">+ New Blog Post</a>
+			{% endif %}
 		</nav>
 		<div class="cards_container">
 			{% block content %}

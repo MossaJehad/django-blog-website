@@ -1,11 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 	<h1>Delete post</h1>
-	<form action="" method="post">{% csrf_token %}
-		<p>Are you sure you want to delete "{{ post.title }}"?</p>
-		<a class="button delete_btn" value="Delete" type="submit" href="#"
-		onclick="this.closest('form').submit();">
-			Delete
-		</a>
+	<form action="" method="post">
+		{% if user.is_authenticated %}
+				{% if user == post.author %}
+					{% csrf_token %}
+					<p>
+						Are you sure you want to delete
+						"{{ post.title|slice:":72" }}..."?
+					</p>
+					<a class="button delete_btn" value="Delete" type="submit" href="#"
+					onclick="this.closest('form').submit();">
+						Delete
+					</a>
+				{% else %}
+					<script>
+						window.location.href = "{% url 'home' %}";
+					</script>
+				{% endif %}
+			{% else %}
+				<script>
+					window.location.href = "{% url 'home' %}";
+				</script>
+			{% endif %}
+		<a class="home_button button" href="{% url 'home' %}">Back to Home</a>
 	</form>
 {% endblock content %}

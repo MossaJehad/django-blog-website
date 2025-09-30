@@ -3,25 +3,40 @@
 {% block content %}
 	<h1 class="newpost">New post</h1>
 		<form action="" method="post">
-			{% csrf_token %}
-			<div class="form-group">
-				{{ form.title.label_tag }}
-				{{ form.title }}
-				{{ form.title.errors }}
-			</div>
-			<div class="form-group">
-				{{ form.author.label_tag }}
-				{{ form.author }}
-				{{ form.author.errors }}
-			</div>
-			<div class="form-group">
-				{{ form.body.label_tag }}
-				{{ form.body }}
-				{{ form.body.errors }}
-			</div>
-		<a class="button save_btn" value="Save" type="submit" href="#" onclick="this.closest('form').submit();">
-			Save
-		</a>
+			{% if user.is_authenticated %}
+				{% csrf_token %}
+				<div class="form-group">
+					{{ form.title.label_tag }}
+					{{ form.title }}
+					{{ form.title.errors }}
+				</div>
+				{% if form.title.help_text %}
+					<small class="form-text text-muted">{{ form.title.help_text|safe }}</small>
+				{% endif %}
+				<div class="form-group">
+					{{ form.author.label_tag }}
+					{{ form.author }}
+					{{ form.author.errors }}
+				</div>
+				{% if form.author.help_text %}
+					<small class="form-text text-muted">{{ form.author.help_text|safe }}</small>
+				{% endif %}
+				<div class="form-group">
+					{{ form.body.label_tag }}
+					{{ form.body }}
+					{{ form.body.errors }}
+				</div>
+				{% if form.body.help_text %}
+					<small class="form-text text-muted">{{ form.body.help_text|safe }}</small>
+				{% endif %}
+				<a class="button save_btn" value="Save" type="submit" href="#" onclick="this.closest('form').submit();">
+					Save
+				</a>
+			{% else %}
+				<script>
+					window.location.href = "{% url 'home' %}";
+				</script>
+			{% endif %}
 	</form>
 	<a class="home_button button" href="{% url 'home' %}">Back to Home</a>
 {% endblock content %}

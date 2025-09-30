@@ -17,6 +17,21 @@ class BlogCreateView(CreateView):
 	template_name = 'post_new.html'
 	fields = ['title', 'author', 'body']
 
+	def get_initial(self):
+		initial = super().get_initial()
+		if self.request.user.is_authenticated:
+			initial['author'] = self.request.user
+		return initial
+
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
+
+	def get_form(self, form_class=None):
+		form = super().get_form(form_class)
+		form.fields['author'].disabled = True
+		return form
+
 class BlogUpdateView(UpdateView):
 	model = Post
 	template_name = 'post_edit.html'

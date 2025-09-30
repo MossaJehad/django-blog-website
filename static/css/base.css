@@ -73,6 +73,9 @@ body {
 	display: block;
 	overflow: hidden;
 	border: 3px solid #000;
+	hyphens: auto;
+	word-break: break-word;
+	word-wrap: break-word;
 }
 
 .button {
@@ -196,6 +199,9 @@ body {
 	border-bottom: 3px solid #000;
 	display: inline-block;
 	padding-bottom: 0.3rem;
+	hyphens: auto;
+	word-break: break-word;
+	word-wrap: break-word;
 }
 
 /* Body text */
@@ -204,6 +210,9 @@ body {
 	line-height: 1.75;
 	color: var(--text);
 	margin-bottom: 1.5rem;
+	hyphens: auto;
+	word-break: break-word;
+	word-wrap: break-word;
 }
 
 .post_details::before {
@@ -238,6 +247,13 @@ body {
 	color: var(--text);
 	z-index: 1;
 	max-width: 70ch;
+}
+
+.author {
+	font-size: 0.9rem;
+	color: #555;
+	margin-bottom: 1rem;
+	display: block;
 }
 
 h1 {
@@ -294,4 +310,24 @@ p {
 	background: rgb(240, 200, 1, 0.2);
 	color: black;
 	border-color: #e1716f;
+}
+
+@media screen and (max-width: 860px) {
+	body {
+		padding: 1rem;
+	}
+	.site_header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+	.session {
+		position: static;
+	}
+	.home_button, .new_button, .update_button, .delete_button {
+		position: static;
+	}
+	.cards_container {
+		grid-template-columns: 1fr;
+	}
 }
