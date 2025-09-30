@@ -1,0 +1,41 @@
+<!-- templates/signup.html -->
+{% extends 'base.html' %}
+{% block content %}
+	<h2>Sign up</h2>
+	<form method="post">
+		{% csrf_token %}
+		{% if user.is_authenticated %}
+			<script>
+				// Current solution: Redirect to home if already logged in
+				window.location.href = "{% url 'home' %}";
+			</script>
+		{% endif %}
+		<div class="form-group">
+			{{ form.username.label_tag }}
+			{{ form.username }}
+			{{ form.username.errors }}
+			{% if form.username.help_text %}
+				<small class="form-text text-muted">{{ form.username.help_text|safe }}</small>
+			{% endif %}
+		</div>
+		<div class="form-group">
+			{{ form.password1.label_tag }}
+			{{ form.password1 }}
+			{{ form.password1.errors }}
+			{% if form.password1.help_text %}
+				<small class="form-text text-muted">{{ form.password1.help_text|safe }}</small>
+			{% endif %}
+		</div>
+		<div class="form-group">
+			{{ form.password2.label_tag }}
+			{{ form.password2 }}
+			{{ form.password2.errors }}
+			{% if form.password2.help_text %}
+				<small class="form-text text-muted">{{ form.password2.help_text|safe }}</small>
+			{% endif %}
+		</div>
+		<a class="button save_btn" value="Signup" type="submit" href="#" onclick="this.closest('form').submit();">
+			Sign up
+		</a>
+	</form>
+{% endblock content %}
