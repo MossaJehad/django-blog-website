@@ -20,6 +20,10 @@ db.sqlite3
 # Media and static files
 media/
 static_collected/
+staticfiles/
+
+# Vercel
+.vercel
 
 # IDE-specific files
 .idea/
